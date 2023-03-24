@@ -1,6 +1,9 @@
+import numpy as np
 def is_prime(n):
-    for i in range(2,n):
-        if (n % i == 0):
+    if n < 2:
+        return False
+    for i in range(2,int(np.sqrt(n)+1)):
+        if n % i == 0:
             return False
     return True
 def is_perfect_number(n):
@@ -9,6 +12,8 @@ def is_perfect_number(n):
 if __name__ == "__main__":
     n = 0
     n = int(input("nhap n: "))
+    while n < 0:
+        n = int(input("nhap lai n: "))    
     print("n =",n)
     print("-------------")
     print(is_prime(n))
